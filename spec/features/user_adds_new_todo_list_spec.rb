@@ -1,6 +1,5 @@
 feature "Adding a new todo list" do
   scenario "Path of success" do
-    pending "implementation"
     visit "/lists#index"
     click_on "New List"
     fill_in "Title", with: "Groceries"
