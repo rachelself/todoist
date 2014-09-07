@@ -4,11 +4,17 @@ class ListsController < ApplicationController
   end
 
   def new
+    @list = List.new
   end
 
   def create
-    list = List.create!(list_params)
-    redirect_to lists_path, notice: "The #{list.title} List has been created."
+    @list = List.new(list_params)
+    if @list.save
+      redirect_to lists_path, notice: "The #{@list.title} List has been created."
+    else
+      flash.alert = "List could not be created."
+      render :new
+    end
   end
 
   protected

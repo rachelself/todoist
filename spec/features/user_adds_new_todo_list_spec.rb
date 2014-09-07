@@ -12,11 +12,9 @@ feature "Adding a new todo list" do
   end
 
   scenario "skipping filling out the form" do
-    pending "implementation"
     visit "/lists#index"
     click_on "New List"
     click_on "Create List"
-    page.should have_content("ToDo List could not be created.")
-    page.should have_error("can't be blank", on: "Title")
+    page.should have_content("List could not be created.")
   end
 end
